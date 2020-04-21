@@ -3,31 +3,20 @@
 class Solution:
     def reverse(self, x: int) -> int:
 
-        newX = x
-        isNegative = False
+        y = list(str(abs(x)))
 
-        if x < 0:
-            newX = x*-1
-            isNegative = True
+        y.reverse()
 
-
-        numArray = [str(num) for num in str(newX)]
-
-        reversedArray = [] 
-
-        for i in range(len(numArray)):
-            reversedArray.insert(i, numArray.pop())
-
-        reversedInt = int("".join(reversedArray)) 
-
-        if(abs(reverseInt) > (2 ** 31 - 1)):
+        num = int("".join(y))  
+        
+        if num > 2147483647:
             return 0
-
-        if isNegative == True:
-            return reversedInt*-1
+        elif x < 0:
+            return num*-1
         else:
-            return reversedInt
-
+            return num
 
 s1 = Solution()
 print(s1.reverse(-678))
+
+print(s1.reverse(1563847412))
