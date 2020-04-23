@@ -6,15 +6,19 @@ class Solution:
     def isPalindrome(self, x: int) -> bool:
 
         y = list(str(x))
-        z = list(str(x))
-        z.reverse()
 
-        if '-' in z:
+        if '-' in y:
             return False
-        elif int("".join(y)) == int("".join(z)):
-            return True 
         else:
-            return False 
+             z = len(y)-1
+
+             for x in range(0, int(len(y)/2)):
+                 if y[x] is y[z]:
+                     z -= 1
+                 else:
+                     return False
+
+        return True
 
 s = Solution()
 print(s.isPalindrome(121))
