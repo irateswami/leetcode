@@ -3,18 +3,14 @@
 class Solution:
     def reverse(self, x: int) -> int:
 
-        y = list(str(abs(x)))
-
-        y.reverse()
-
-        num = int("".join(y))  
+        y = str(abs(x))[::-1]
         
-        if num > 2147483647:
+        if int(y) > 2147483647:
             return 0
         elif x < 0:
-            return num*-1
+            return int(y)*-1
         else:
-            return num
+            return int(y)
 
 s1 = Solution()
 print(s1.reverse(-678))
